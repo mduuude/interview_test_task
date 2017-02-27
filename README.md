@@ -1,4 +1,4 @@
-Запуск тестов:
+﻿Запуск тестов:
 
 1. Bash - устанавливаем менеджер пакетов Chocolatey
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
@@ -27,3 +27,7 @@ npm run one-test --testcase=01 (testcase=01 - номер единичного т
 npm run all-tests
 
 !!По умолчанию запускается параллельно только 1 тест. При желании это можно изменить в файле package.json!!
+
+НЕ ПОЛУЧАЕТСЯ СДЕЛАТЬ НОВЫЙ PR:
+There isn’t anything to compare.
+master and igor_tests are entirely different commit histories.
