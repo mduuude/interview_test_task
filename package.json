@@ -1,0 +1,57 @@
+{
+  "name": "regression-tests",
+  "version": "1.0.0",
+  "description": "My Tests",
+  "private": true,
+  "maintainers": [
+    "Pavlenko Igor <igor.s.pavlenko@gmail.com>"
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "-"
+    }
+  ],
+  "dependencies": {
+    "babel-cli": "6.18.0",
+    "babel-plugin-espower": "2.3.2",
+    "babel-plugin-transform-async-to-generator": "6.16.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+    "babel-register": "6.18.0",
+    "base64-min": "1.2.0",
+    "chai": "3.5.0",
+    "cross-conf-env": "1.1.2",
+    "got": "6.7.1",
+    "mkdirp": "0.5.1",
+    "mocha": "3.2.0",
+    "mocha-parallel-tests": "1.2.5",
+    "ms": "0.7.2",
+    "power-assert": "1.4.2",
+    "selenium-standalone": "6.0.1",
+    "vdata-parser": "0.1.5",
+    "webdriverio": "4.6.2",
+    "xml-parser": "1.2.1"
+  },
+  "devDependencies": {
+    "eslint": "3.16.0",
+    "pre-commit": "1.2.2"
+  },
+  "config": {
+    "retry": "1",
+    "slow": "60000",
+    "timeout": "300000",
+    "parallel": "1"
+  },
+  "scripts": {
+    "lint": "eslint ./ && echo '\n\\033[34mlint finished\\033[39m\n'",
+    "clean": "rm -rf ./node_modules",
+    "selenium-install": "selenium-standalone install",
+    "setup": "npm run clean && npm install -q && npm run selenium-install",
+    "all-tests": "cross-conf-env mocha-parallel-tests --compilers js:babel-register --no-exit --max-parallel npm_package_config_parallel --retry npm_package_config_retry --timeout npm_package_config_timeout --slow npm_package_config_slow tests/*.js",
+    "one-test": "cross-conf-env mocha --compilers js:babel-register --no-exit --timeout npm_package_config_timeout --slow npm_package_config_slow tests/test-npm_config_testcase.js"
+  },
+  "pre-commit": "lint",
+  "engines": {
+    "node": ">=6"
+  }
+}
